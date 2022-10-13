@@ -47,13 +47,13 @@ function initMot() {
   let divMotCacher = document.createElement("span")
   divMotCacher.id = "mot";
   divMot.appendChild(divMotCacher);
+
 }
 
 function cacheLeMot() {
   for (let i = 0; i < motCacher.length; i++) {
     divMot.innerHTML += "-";
   }
-
 }
 
 /*
