@@ -1,0 +1,20 @@
+#clavier input{
+  font-size: 50px;
+  width: 70px;
+  height: 70px;
+  margin: 1%;
+  border-radius: 10px;
+}
+
+h1{
+  text-align: center;
+}
+
+#clavier{
+  text-align: center;
+
+}
+#mot{
+  text-align: center;
+  font-size: 50px;
+}
