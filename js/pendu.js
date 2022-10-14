@@ -1,8 +1,12 @@
 let dictionnaire = ["slimane", "sport", "football", "rapide", "perpondiculaire"]
 let clavier = document.getElementById("clavier");
 let divMot = document.getElementById("mot");
+let titre = document.getElementsByTagName("h1")[0];
+let nbrEssai = document.getElementById("nbrEssai");
 let motCacher;
-let motResultat;
+let motResultat = "";
+let nombreEssai = 7;
+let lettreTrouver = false;
 
 
 start();
@@ -11,7 +15,7 @@ function start() {
   afficherClavier();
   motCacher = genererMot();
   cacheLeMot();
-
+  //afficherEssais();
 }
 
 function afficherClavier() {
@@ -24,21 +28,16 @@ function afficherClavier() {
     button.type = "button"
     button.value = lettre;
     button.id = lettre;
-    button.addEventListener("click", e => {
-      inputCheck(e.target.id)
-    });
+    button.addEventListener("click", verifierLettre);
     clavier.appendChild(button);
   }
 }
 
-function inputCheck(value) {
-  divMot.innerHTML = value;
-}
 
 function genererMot() {
   motCacher = dictionnaire[Math.floor(Math.random() * dictionnaire.length)];
   console.log(motCacher);
-  motCacher = motCacher.toLocaleLowerCase();
+  motCacher = motCacher.toUpperCase();
   return motCacher;
 
 }
@@ -52,25 +51,56 @@ function initMot() {
 
 function cacheLeMot() {
   for (let i = 0; i < motCacher.length; i++) {
-    divMot.innerHTML += "-";
+    motResultat += "-";
   }
+  divMot.innerHTML = motResultat;
 }
 
-/*
-function testLettre(lettre) {
-  saveTmp = "";
+function verifierLettre(e) {
+  motTmp = "";
+  lettre = e.target.value;
+  lettreTrouver = false;
   for (i = 0; i < motCacher.length; i++) {
+    if (motCacher.charAt(i) == lettre) {
 
-    if (motCacher.charAt(i) === lettre) {
-      saveTmp += lettre + " "
-      cpt++;
+      motTmp += lettre;
+      lettreTrouver = true;
     } else {
-      saveTmp += "-"
+      motTmp += motResultat[i];
+
+
     }
   }
 
-  return saveTmp
+  if (lettreTrouver == false) {
+    console.log("gggggg");
+    nombreEssai--;
+    nbrEssai.innerHTML = "Il vous reste " + (nombreEssai) + " chance.";
+  }
+
+  motResultat = motTmp;
+  divMot.innerHTML = motResultat;
+
+  if (nombreEssai === 0) {
+    alert("Perdu")
+    location.reload();
+  }
+
+  return motTmp;
 
 }
-*/
+
+function afficherEssais() {
+
+  if (lettreTrouver == false) {
+    console.log("gggggg");
+    nombreEssai--;
+    nbrEssai.innerHTML = "Il vous reste " + (nombreEssai) + " chance.";
+  }
+  if (nombreEssai === 0) {
+    alert("Perdu")
+    location.reload();
+  }
+
+}
 
