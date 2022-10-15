@@ -47,7 +47,7 @@ function genererMot() {
 function ajouterImg() {
   let img = document.createElement("img");
   img.id = "pendu";
-  img.src = "img/pendu_0.jpg";
+  img.src = "img/pendu.jpg";
   nbrEssai.appendChild(img);
 
 }
@@ -90,6 +90,7 @@ function afficherEssais() {
     nombreEssai--;
     nbrEssai.innerHTML = "Il vous reste " + (nombreEssai) + " essais.";
     chargerAllImage();
+    //ImageErreur();
   }
 
   resultat();
@@ -140,7 +141,7 @@ function afficherPerdu() {
 
     let img = document.createElement("img");
     img.id = "pendu";
-    img.src = "img/pendu_6.jpg";
+    img.src = "img/0.jpg";
     nbrEssai.appendChild(img);
   }
 }
@@ -159,44 +160,52 @@ function chargerAllImage() {
   if (nombreEssai == 6) {
     let img = document.createElement("img");
     img.id = "pendu";
-    img.src = "img/pendu1.jpg";
+    img.src = "img/6.jpg";
     nbrEssai.appendChild(img);
   } else if (nombreEssai == 5) {
     let img = document.createElement("img");
     img.id = "pendu";
-    img.src = "img/pendu_1.jpg";
+    img.src = "img/5.jpg";
     nbrEssai.appendChild(img);
   } else if (nombreEssai == 4) {
     let img = document.createElement("img");
     img.id = "pendu";
-    img.src = "img/pendu_2.jpg";
+    img.src = "img/4.jpg";
     nbrEssai.appendChild(img);
   } else if (nombreEssai == 3) {
     let img = document.createElement("img");
     img.id = "pendu";
-    img.src = "img/pendu_3.jpg";
+    img.src = "img/3.jpg";
     nbrEssai.appendChild(img);
   } else if (nombreEssai == 2) {
     let img = document.createElement("img");
     img.id = "pendu";
-    img.src = "img/pendu_4.jpg";
+    img.src = "img/2.jpg";
     nbrEssai.appendChild(img);
   } else if (nombreEssai == 1) {
     let img = document.createElement("img");
     img.id = "pendu";
-    img.src = "img/pendu_5.jpg";
+    img.src = "img/1.jpg";
     nbrEssai.appendChild(img);
   } else if (nombreEssai == 0) {
     let img = document.createElement("img");
     img.id = "pendu";
-    img.src = "img/pendu_6.jpg";
+    img.src = "img/0.jpg";
     nbrEssai.appendChild(img);
   }
 
 
 }
+/*
+function ImageErreur(){
 
+  let img = document.createElement("img");
+  img.id = "pendu";
+ // img.src="/.img"+nombreEssai+".jpg";
+  img.src = "./img/" + nombreEssai + ".png";
+  nbrEssai.appendChild(img);
 
-
+}
+*/
 
 
