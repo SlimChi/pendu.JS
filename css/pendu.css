@@ -1,20 +1,29 @@
 #clavier input{
   font-size: 50px;
-  width: 70px;
-  height: 70px;
+  width: 60px;
+  height: 60px;
   margin: 1%;
   border-radius: 10px;
+  background-color: #DDD8D7;
 }
 
 h1{
   text-align: center;
 }
 
-#clavier{
-  text-align: center;
-
-}
-#mot{
+#container{
   text-align: center;
   font-size: 50px;
 }
+
+#nbrEssai img{
+  width: 280px;
+  margin-left: 27%;
+
+}
+
+#nbrEssai{
+  font-size: 20px;
+  color: crimson;
+}
+

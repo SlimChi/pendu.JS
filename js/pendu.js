@@ -1,21 +1,25 @@
-let dictionnaire = ["slimane", "sport", "football", "rapide", "perpondiculaire"]
+let dictionnaire = ["Chaise", "Table", "Fraise", "Veau", "Pain", "Souris", "Tartine", "Hamburger", "Tortue", "Baguette", "Ordinateur", "Donjon", "Tacos", "Clavier", "Lettre", "Papier", "Prince", "Princesse", "Complainte", "Marin", "Tartiflette"]
 let clavier = document.getElementById("clavier");
 let divMot = document.getElementById("mot");
 let titre = document.getElementsByTagName("h1")[0];
 let nbrEssai = document.getElementById("nbrEssai");
+
 let motCacher;
+let nombreEssai;
 let motResultat = "";
-let nombreEssai = 7;
 let lettreTrouver = false;
 
+commencerUnePartie();
+document.getElementById("rejouer").addEventListener("click", commencerUnePartie);
 
-start();
-
-function start() {
+function commencerUnePartie() {
+  reinitialiser();
   afficherClavier();
+  nombreEssai = 7;
+  ajouterImg();
   motCacher = genererMot();
-  cacheLeMot();
-  //afficherEssais();
+  cacherLeMot();
+
 }
 
 function afficherClavier() {
@@ -33,23 +37,22 @@ function afficherClavier() {
   }
 }
 
-
 function genererMot() {
   motCacher = dictionnaire[Math.floor(Math.random() * dictionnaire.length)];
   console.log(motCacher);
   motCacher = motCacher.toUpperCase();
   return motCacher;
+}
+
+function ajouterImg() {
+  let img = document.createElement("img");
+  img.id = "pendu";
+  img.src = "img/pendu_0.jpg";
+  nbrEssai.appendChild(img);
 
 }
 
-function initMot() {
-  let divMotCacher = document.createElement("span")
-  divMotCacher.id = "mot";
-  divMot.appendChild(divMotCacher);
-
-}
-
-function cacheLeMot() {
+function cacherLeMot() {
   for (let i = 0; i < motCacher.length; i++) {
     motResultat += "-";
   }
@@ -62,45 +65,138 @@ function verifierLettre(e) {
   lettreTrouver = false;
   for (i = 0; i < motCacher.length; i++) {
     if (motCacher.charAt(i) == lettre) {
-
       motTmp += lettre;
       lettreTrouver = true;
+      e.target.style.setProperty("color", "green");
+      //nbrEssai.remove(document.getElementById("img"));
+
     } else {
+
       motTmp += motResultat[i];
-
-
+    }
+    if (!lettreTrouver) {
+     e.target.style.setProperty("color", "red");
     }
   }
 
-  if (lettreTrouver == false) {
-    console.log("gggggg");
-    nombreEssai--;
-    nbrEssai.innerHTML = "Il vous reste " + (nombreEssai) + " chance.";
-  }
-
-  motResultat = motTmp;
-  divMot.innerHTML = motResultat;
-
-  if (nombreEssai === 0) {
-    alert("Perdu")
-    location.reload();
-  }
-
+  afficherEssais();
+  this.disabled = true;
   return motTmp;
-
 }
 
 function afficherEssais() {
 
   if (lettreTrouver == false) {
-    console.log("gggggg");
     nombreEssai--;
-    nbrEssai.innerHTML = "Il vous reste " + (nombreEssai) + " chance.";
-  }
-  if (nombreEssai === 0) {
-    alert("Perdu")
-    location.reload();
+    nbrEssai.innerHTML = "Il vous reste " + (nombreEssai) + " essais.";
+    chargerAllImage();
   }
 
+  resultat();
 }
+
+function resultat() {
+  motResultat = motTmp;
+  divMot.innerHTML = motResultat;
+    afficherGagner();
+  afficherPerdu();
+
+}
+
+function afficherGagner() {
+
+  if (motCacher == motResultat) {
+
+    for (let i = 0; i < clavier.childNodes.length; i++) {
+      clavier.childNodes[i].disabled = true;
+    }
+
+    titre.innerHTML = "Bravo ! Vous avez gagner :)"
+    titre.style.color = "green";
+    nbrEssai.innerHTML = "Vous pouvez rejouer :)";
+    nbrEssai.style.color = "green";
+
+      let img = document.createElement("img");
+      img.id = "pendu";
+      img.src = "img/victoire.png";
+      nbrEssai.appendChild(img);
+
+  }
+}
+
+function afficherPerdu() {
+
+  if (nombreEssai == 0) {
+
+    for (let i = 0; i < clavier.childNodes.length; i++) {
+      clavier.childNodes[i].disabled = true;
+    }
+
+    titre.innerHTML = "Vous avez perdu ! Veuillez rejouer SVP !"
+    titre.style.color = "red";
+    divMot.innerHTML = motCacher;
+    nbrEssai.innerHTML = "0 essai ! Veuillez rejouer !";
+    nbrEssai.style.color = "red";
+
+    let img = document.createElement("img");
+    img.id = "pendu";
+    img.src = "img/pendu_6.jpg";
+    nbrEssai.appendChild(img);
+  }
+}
+
+function reinitialiser() {
+  nombreEssai = 7;
+  titre.style.color = "black";
+  titre.innerHTML = "Le Jeu Du Pendu"
+  motCacher = "";
+  motResultat = ""
+  nbrEssai.innerHTML = "Il vous reste " + (nombreEssai) + " essais.";
+}
+
+function chargerAllImage() {
+
+  if (nombreEssai == 6) {
+    let img = document.createElement("img");
+    img.id = "pendu";
+    img.src = "img/pendu1.jpg";
+    nbrEssai.appendChild(img);
+  } else if (nombreEssai == 5) {
+    let img = document.createElement("img");
+    img.id = "pendu";
+    img.src = "img/pendu_1.jpg";
+    nbrEssai.appendChild(img);
+  } else if (nombreEssai == 4) {
+    let img = document.createElement("img");
+    img.id = "pendu";
+    img.src = "img/pendu_2.jpg";
+    nbrEssai.appendChild(img);
+  } else if (nombreEssai == 3) {
+    let img = document.createElement("img");
+    img.id = "pendu";
+    img.src = "img/pendu_3.jpg";
+    nbrEssai.appendChild(img);
+  } else if (nombreEssai == 2) {
+    let img = document.createElement("img");
+    img.id = "pendu";
+    img.src = "img/pendu_4.jpg";
+    nbrEssai.appendChild(img);
+  } else if (nombreEssai == 1) {
+    let img = document.createElement("img");
+    img.id = "pendu";
+    img.src = "img/pendu_5.jpg";
+    nbrEssai.appendChild(img);
+  } else if (nombreEssai == 0) {
+    let img = document.createElement("img");
+    img.id = "pendu";
+    img.src = "img/pendu_6.jpg";
+    nbrEssai.appendChild(img);
+  }
+
+
+}
+
+
+
+
 
