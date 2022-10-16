@@ -1,6 +1,8 @@
 body{
-  margin: auto;
+  margin:auto;
   background-color: beige;
+
+  width: 700px;
 }
 
 #clavier input {
@@ -25,7 +27,9 @@ h1 {
   letter-spacing : 10px;
 
 }
-
+.clavier{
+  height: auto;
+}
 #nbrEssai img {
   width: 350px;
   display: block;
@@ -45,10 +49,7 @@ h1 {
   text-align: center;
 }
 
-.clavier {
 
-
-}
 
 #rejouer {
   display: inline-block;
@@ -74,8 +75,11 @@ h1 {
   box-shadow: 0 5px #666;
   transform: translateY(4px);
 }
-@media  screen and (max-width: 350px, max-height:350) {
-  .container {
-    width:400px ;
-    height:360px
-  }
+
+@media  screen and (max-width: 769px )  {
+body{
+width: 90%;
+}
+
+}
+
