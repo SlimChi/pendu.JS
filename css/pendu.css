@@ -40,6 +40,7 @@ h1 {
   height: auto;
   flex: 1 1 auto;
   justify-content: space-around;
+  float: left;
 }
 
 #nbrEssai img {
@@ -96,4 +97,10 @@ h1 {
     width: 290px;
   }
 }
+@media (orientation: landscape) and (max-width : 640px) {
+  #nbrEssai img{
+    float: right;
+    width: 50%;
+  }
 
+}
