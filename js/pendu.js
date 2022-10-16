@@ -40,8 +40,6 @@ function afficherClavier() {
 
 }
 
-
-
 function genererMot() {
   motCacher = dictionnaire[Math.floor(Math.random() * dictionnaire.length)];
   console.log(motCacher);
@@ -98,6 +96,10 @@ function afficherEssais() {
     nombreEssai--;
     nbrEssai.innerHTML = "Il vous reste " + (nombreEssai) + " essais";
     nbrEssai.style.color = "red";
+
+    if (nombreEssai == 1){
+      nbrEssai.innerHTML="ATTENTION ! Dernier essai"
+    }
     imagesPendu();
   }
   resultat();
@@ -118,7 +120,6 @@ function afficherGagner() {
     for (let i = 0; i < clavier.childNodes.length; i++) {
       clavier.childNodes[i].disabled = true;
     }
-
     titre.innerHTML = "Bravo ! Vous avez gagné :)"
     titre.style.color = "green";
     nbrEssai.innerHTML = ":)";
@@ -140,10 +141,10 @@ function afficherPerdu() {
       clavier.childNodes[i].disabled = true;
     }
 
-    titre.innerHTML = "Vous avez perdu ! Veuillez rejouer SVP !"
+    titre.innerHTML = "PERDU"
     titre.style.color = "red";
     divMot.innerHTML = motCacher;
-    nbrEssai.innerHTML = "0 essai ! :( ";
+    nbrEssai.innerHTML = ":(";
     nbrEssai.style.color = "red";
 
     document.getElementById("rejouer").style.visibility = "visible";
@@ -172,9 +173,6 @@ function imagesPendu() {
 
   nbrEssai.appendChild(img);
 
-  if (nombreEssai == 1){
-      alert("Dernier essai !!")
-  }
 }
 
 
