@@ -92,26 +92,33 @@ h1 {
 @media screen and (max-width: 683px ) {
   body {
     width: auto;
+    height: auto;
   }
   #nbrEssai img{
     width: auto;
+    height: auto;
   }
 }
+
+@media screen and (max-height: 799px ) {
+  body {
+    height: auto;
+    width: auto;
+  }
+  #nbrEssai img{
+    float: right;
+    width: auto;
+    height: auto;
+  }
+}
+
+
 @media (orientation: landscape) and (max-width : 540px)and (min-height : 734px)  {
   #nbrEssai img{
     float: right;
     width: 50%;
   }
   #clavier{
-    width: auto;
-  }
-}
-
-@media screen and (max-height: 739px ) {
-  body {
-    height: auto;
-  }
-  #nbrEssai img{
     width: auto;
   }
 }
