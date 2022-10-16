@@ -1,29 +1,77 @@
-#clavier input{
-  font-size: 50px;
-  width: 60px;
-  height: 60px;
-  margin: 1%;
+body{
+  margin: auto;
+  background-color: beige;
+}
+
+#clavier input {
+  font-size: 30px;
+  width: 70px;
+  height: 70px;
+  margin: 0.5%;
   border-radius: 10px;
   background-color: #DDD8D7;
+  font-family: "Arial Rounded MT Bold";
+  font-weight: bold;
+  cursor:pointer;
 }
 
-h1{
+h1 {
   text-align: center;
 }
 
-#container{
+#container {
   text-align: center;
-  font-size: 50px;
+  font-size: 55px;
+  letter-spacing : 10px;
+
 }
 
-#nbrEssai img{
-  width: 280px;
-  margin-left: 27%;
+#nbrEssai img {
+  width: 350px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  max-width: 100%;
+  height: auto;
+  margin-top: 15px;
 }
 
-#nbrEssai{
-  font-size: 20px;
+.nbrEssai {
+  font-size: 30px;
   color: crimson;
+  text-align: center;
+}
 
+.clavier {
+
+
+}
+
+#rejouer {
+  display: inline-block;
+  padding: 15px 25px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+#rejouer:hover {
+  background-color: #3e8e41
+}
+
+#rejouer:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 
