@@ -75,6 +75,7 @@ h1 {
   border: none;
   border-radius: 15px;
   box-shadow: 0 9px #999;
+  margin-top: 20px;
 }
 
 #rejouer:hover {
