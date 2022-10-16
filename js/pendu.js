@@ -114,7 +114,7 @@ function afficherGagner() {
       clavier.childNodes[i].disabled = true;
     }
 
-    titre.innerHTML = "Bravo ! Vous avez gagner :)"
+    titre.innerHTML = "Bravo ! Vous avez gagné :)"
     titre.style.color = "green";
     nbrEssai.innerHTML = ":)";
     nbrEssai.style.color = "green";
