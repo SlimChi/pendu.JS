@@ -114,7 +114,8 @@ h1 {
 @media (orientation: landscape) and (max-width : 540px)and (min-height : 734px)  {
   #nbrEssai img{
     float: right;
-    width: 50%;
+    width: 576px;
+    height: 242px;
   }
   #clavier{
     width: auto;
