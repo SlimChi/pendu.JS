@@ -33,15 +33,13 @@ h1 {
   display: flex;
   flex-flow: column wrap;
   margin: 10px;
-
 }
 
 .clavier {
   height: auto;
   flex: 1 1 auto;
   justify-content: space-around;
-  float: left;
-}
+  }
 
 #nbrEssai img {
   width: 350px;
@@ -120,5 +118,10 @@ h1 {
   }
   #clavier{
     width: auto;
+  }
+  #clavier input {
+    font-size: 20px;
+    width: 35px;
+    height: 35px;
   }
 }
