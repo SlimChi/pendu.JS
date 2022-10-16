@@ -4,6 +4,7 @@ let divMot = document.getElementById("mot");
 let titre = document.getElementsByTagName("h1")[0];
 let nbrEssai = document.getElementById("nbrEssai");
 
+
 let motCacher;
 let nombreEssai;
 let motResultat = "";
@@ -34,8 +35,12 @@ function afficherClavier() {
     button.id = lettre;
     button.addEventListener("click", verifierLettre);
     clavier.appendChild(button);
+
   }
+
 }
+
+
 
 function genererMot() {
   motCacher = dictionnaire[Math.floor(Math.random() * dictionnaire.length)];
@@ -47,7 +52,7 @@ function genererMot() {
 function imageInitiale() {
   let img = document.createElement("img");
   img.id = "pendu";
-  img.src = "img/pendu.jpg";
+  img.src = "img/7.jpg";
   nbrEssai.appendChild(img);
 
 }
@@ -114,7 +119,7 @@ function afficherGagner() {
       clavier.childNodes[i].disabled = true;
     }
 
-    titre.innerHTML = "Bravo ! Vous avez gagner :)"
+    titre.innerHTML = "Bravo ! Vous avez gagné :)"
     titre.style.color = "green";
     nbrEssai.innerHTML = ":)";
     nbrEssai.style.color = "green";
@@ -164,6 +169,7 @@ function imagesPendu() {
   let img = document.createElement("img");
   img.id = "pendu";
   img.src = "img/" + nombreEssai + ".jpg";
+
   nbrEssai.appendChild(img);
 
   if (nombreEssai == 1){

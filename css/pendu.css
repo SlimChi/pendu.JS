@@ -1,6 +1,14 @@
-body{
+body {
   margin: auto;
   background-color: beige;
+
+  width: 700px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 #clavier input {
@@ -12,7 +20,7 @@ body{
   background-color: #DDD8D7;
   font-family: "Arial Rounded MT Bold";
   font-weight: bold;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 h1 {
@@ -22,8 +30,17 @@ h1 {
 #container {
   text-align: center;
   font-size: 55px;
-  letter-spacing : 10px;
+  letter-spacing: 10px;
+  display: flex;
+  flex-flow: column wrap;
+  margin: 10px;
 
+}
+
+.clavier {
+  height: auto;
+  flex: 1 1 auto;
+  justify-content: space-around;
 }
 
 #nbrEssai img {
@@ -43,12 +60,9 @@ h1 {
   font-size: 30px;
   color: crimson;
   text-align: center;
+  flex: 1 1 auto;
 }
 
-.clavier {
-
-
-}
 
 #rejouer {
   display: inline-block;
@@ -73,5 +87,11 @@ h1 {
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+}
+
+@media screen and (max-width: 769px ) {
+  body {
+    width: 90%;
+  }
 }
 
