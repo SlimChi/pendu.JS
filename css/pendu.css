@@ -41,7 +41,7 @@ h1 {
   justify-content: space-around;
   }
 
-#nbrEssai img {
+.nbrEssai img {
   width: 350px;
   display: block;
   margin-left: auto;
@@ -104,7 +104,7 @@ h1 {
     height: auto;
     width: auto;
   }
-  #nbrEssai img{
+  .nbrEssai img{
     float: right;
     width: auto;
     height: auto;
@@ -113,7 +113,7 @@ h1 {
 
 
 @media (orientation: landscape) and (max-width : 540px)and (min-height : 734px)  {
-  #nbrEssai img{
+  .nbrEssai img{
     float: right;
     width: auto;
     height: 50%;

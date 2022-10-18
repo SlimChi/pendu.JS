@@ -1,8 +1,9 @@
-let dictionnaire = ["chenille","ABOMINERONS","ACCOMMODEES","VULNERANTES", "lucarne", "horloge", "loup", "paysan", "squelette", "voleur", "jacques", "angers", "poste", "triste", "frissons", "pirate", "corps", "olympique", "orange", "erreur", "parfumerie", "dossier", "soulever", "dessin", "crayon", "robinet", "ananas", "scientifique", "abeille", "planeur", "collectionneur", "farine", "pie", "hormones", "annoncer", "echarpe", "bouton", "cerveau", "porte", "poisson", "naviguer", "arbre", "table", "froid", "antibiotiques", "poitiers", "paris", "nantes", "chantez", "tribunal", "gramme", "singulier","AFFECTIONNASSIONS","CIRCONSTANCIERAIT","abélianisée","bredouillis","capitularde","cadenassais","daltonienne","cylindrerai","damasquiner"]
+let dictionnaire = ["chenille", "ABOMINERONS", "ACCOMMODEES", "VULNERANTES", "lucarne", "horloge", "loup", "paysan", "squelette", "voleur", "jacques", "angers", "poste", "triste", "frissons", "pirate", "corps", "olympique", "orange", "erreur", "parfumerie", "dossier", "soulever", "dessin", "crayon", "robinet", "ananas", "scientifique", "abeille", "planeur", "collectionneur", "farine", "pie", "hormones", "annoncer", "echarpe", "bouton", "cerveau", "porte", "poisson", "naviguer", "arbre", "table", "froid", "antibiotiques", "poitiers", "paris", "nantes", "chantez", "tribunal", "gramme", "singulier", "AFFECTIONNASSIONS", "CIRCONSTANCIERAIT", "abélianisée", "bredouillis", "capitularde", "cadenassais", "daltonienne", "cylindrerai", "damasquiner"]
 let clavier = document.getElementById("clavier");
 let divMot = document.getElementById("mot");
 let titre = document.getElementsByTagName("h1")[0];
 let nbrEssai = document.getElementById("nbrEssai");
+let image = document.getElementById("image");
 
 
 let motCacher;
@@ -13,6 +14,7 @@ let lettreTrouver = false;
 commencerUnePartie();
 
 function commencerUnePartie() {
+
   reinitialiser();
   afficherClavier();
   nombreEssai = 7;
@@ -48,10 +50,13 @@ function genererMot() {
 }
 
 function imageInitiale() {
+  if (image.childElementCount > 1){
+    image.removeChild(image.children[1]);
+  }
   let img = document.createElement("img");
   img.id = "pendu";
   img.src = "img/7.jpg";
-  nbrEssai.appendChild(img);
+  image.appendChild(img);
 
 }
 
@@ -78,6 +83,7 @@ function verifierLettre(e) {
     if (!lettreTrouver) {
       e.target.style.setProperty("color", "white");
       e.target.style.setProperty("background-color", "red")
+      // document.getElementById("pendu").src="img/"+nombreEssai+".jpg";
 
     } else {
       e.target.style.setProperty("color", "black");
@@ -96,11 +102,11 @@ function afficherEssais() {
     nombreEssai--;
     nbrEssai.innerHTML = "Il vous reste " + (nombreEssai) + " essais";
     nbrEssai.style.color = "red";
-
-    if (nombreEssai == 1){
-      nbrEssai.innerHTML="ATTENTION ! Dernier essai"
+    document.querySelectorAll("img")[0].src = "img/" + nombreEssai + ".jpg";
+    if (nombreEssai == 1) {
+      nbrEssai.innerHTML = "ATTENTION ! Dernier essai"
     }
-    imagesPendu();
+
   }
   resultat();
 }
@@ -125,10 +131,7 @@ function afficherGagner() {
     nbrEssai.innerHTML = ":)";
     nbrEssai.style.color = "green";
     document.getElementById("rejouer").style.visibility = "visible";
-    let img = document.createElement("img");
-    img.id = "pendu";
-    img.src = "img/victoire.png";
-    nbrEssai.appendChild(img);
+    document.querySelectorAll("img")[0].src = "img/victoire.png";
 
   }
 }
@@ -149,10 +152,7 @@ function afficherPerdu() {
 
     document.getElementById("rejouer").style.visibility = "visible";
 
-    let img = document.createElement("img");
-    img.id = "pendu";
-    img.src = "img/0.jpg";
-    nbrEssai.appendChild(img);
+
   }
 }
 
@@ -166,14 +166,14 @@ function reinitialiser() {
   nbrEssai.innerHTML = "Il vous reste " + (nombreEssai) + " essais";
 }
 
-function imagesPendu() {
+/*function imagesPendu() {
   let img = document.createElement("img");
   img.id = "pendu";
   img.src = "img/" + nombreEssai + ".jpg";
-
   nbrEssai.appendChild(img);
 
 }
+*/
 
 
 
